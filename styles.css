@@ -15,3 +15,17 @@
     align-items: center;
     justify-content: center;
 }
+
+body {
+    flex-direction: column;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.content {
+    font-size: 50px;
+    color: blue;
+}
