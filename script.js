@@ -2,6 +2,13 @@ let turn = 'X';
 let gameState = 'playing';
 let boxes = document.querySelectorAll('.box');
 
+// let player1 = ''
+
+// let players = function() {
+//     let player1 = 
+//     if ()
+// }
+
 let getBoard = function() {
     let boxA1 = document.querySelector('#box-A1');
     let boxA2 = document.querySelector("#box-A2");
@@ -40,7 +47,7 @@ let getBoard = function() {
 
 let showWinMessage = function() {
     let content = document.querySelector('.content');
-    content.textContent = 'Game Win!';
+    content.textContent = 'Player Win: ' + turn;
     gameState = 'finished';
 }
 
@@ -150,16 +157,16 @@ boxes.forEach(box => {
     box.addEventListener('click', function() {
         if (gameState == 'playing') {
             if (box.textContent == '') {
-                if (turn == 'X') {
-                    box.textContent = 'X';
-                    turn = 'O';
-                } else {
-                    box.textContent = 'O';
-                    turn = 'X';
-                }
-    
+                box.textContent = turn;
+                
                 let currentBoard = getBoard()
                 checkGameWin(currentBoard);
+
+                if (turn == 'X') {
+                    turn = 'O';
+                } else {
+                    turn = 'X';
+                }
             }
         }
     })
